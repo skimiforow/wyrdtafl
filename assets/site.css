@@ -1,0 +1,128 @@
+/* Wyrdtafl product site — Dark Nordic Fantasy, matching the game's palette.
+   No build step: one stylesheet, system serif for body text, Cinzel (OFL) for headings. */
+@font-face {
+  font-family: 'Cinzel';
+  src: url('Cinzel[wght].ttf') format('truetype');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+:root {
+  --night: #0b0907;
+  --stone: #0f1217;
+  --panel: #171a21;
+  --panel-edge: #2b2f3a;
+  --bone: #e3d6b8;
+  --bone-dim: #b8ad96;
+  --gold: #f5c76b;
+  --gold-deep: #b57a2a;
+  --ember: #ff7a14;
+  --frost: #6fc9f7;
+  --max: 1100px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--bone);
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-size: 17px;
+  line-height: 1.6;
+  /* Ember warmth low-left, frost cold upper-right, like the table. */
+  background-image:
+    radial-gradient(ellipse 60% 50% at 10% 100%, rgba(255, 85, 0, 0.14), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 95% 0%, rgba(0, 210, 255, 0.10), transparent 70%);
+  background-attachment: fixed;
+}
+a { color: var(--gold); }
+a:hover, a:focus-visible { color: #fff0c4; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.5em;
+  line-height: 1.15;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); text-shadow: 0 2px 18px rgba(255, 138, 42, 0.35); }
+h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); letter-spacing: 0.18em; }
+h3 { font-size: 1rem; letter-spacing: 0.14em; color: var(--bone); }
+p { margin: 0 0 1em; }
+.muted { color: var(--bone-dim); }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--gold); color: #000; padding: 8px 12px; border-radius: 6px; }
+.skip:focus { left: 8px; z-index: 10; }
+
+/* Header */
+.site-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--bone); font-family: 'Cinzel', serif; letter-spacing: 0.2em; font-weight: 700; }
+.brand img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 0 0 1px var(--gold-deep); }
+.site-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.site-nav a { text-decoration: none; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; }
+
+/* Hero */
+.hero { text-align: center; padding: 10px 0 36px; }
+.hero img.feature { width: 100%; max-width: 900px; height: auto; border-radius: 10px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8); }
+.hero .lead { font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 48rem; margin: 26px auto 10px; }
+.hero .meta { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bone-dim); margin-bottom: 22px; }
+
+/* The store button is drawn here rather than with Google's badge artwork, so no brand asset rules apply. */
+.store-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 26px; border-radius: 10px; text-decoration: none; color: #1a1206;
+  background: linear-gradient(180deg, #fff0c4 0%, #f5c76b 45%, #b57a2a 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.95rem;
+}
+.store-btn small { display: block; font-family: Georgia, serif; text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 0.8rem; opacity: 0.85; }
+.store-btn:hover { color: #000; filter: brightness(1.06); }
+.store-btn svg { width: 26px; height: 26px; flex: none; }
+
+/* Sections */
+section { padding: 36px 0; }
+.rule { height: 1px; background: linear-gradient(90deg, transparent, var(--gold-deep), transparent); margin: 0 auto; max-width: var(--max); }
+
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.card {
+  background: linear-gradient(180deg, #1b1f27, #11141a);
+  border: 1px solid var(--panel-edge);
+  border-radius: 12px; padding: 20px 20px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.card .glyph { font-size: 1.5rem; line-height: 1; margin-bottom: 10px; }
+.card .glyph.ember { color: var(--ember); }
+.card .glyph.frost { color: var(--frost); }
+.card .glyph.gold { color: var(--gold); }
+.card p { font-size: 0.97rem; color: var(--bone-dim); margin: 0; }
+
+/* Gallery */
+.gallery { display: flex; gap: 14px; overflow-x: auto; padding: 6px 0 14px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.gallery figure { margin: 0; flex: none; scroll-snap-align: start; }
+.gallery img { height: 440px; width: auto; border-radius: 10px; border: 1px solid var(--panel-edge); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); display: block; }
+.gallery figcaption { font-size: 0.85rem; color: var(--bone-dim); margin-top: 6px; text-align: center; }
+@media (max-width: 600px) { .gallery img { height: 360px; } }
+
+.realms { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.realms li { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--gold-deep); border-radius: 999px; padding: 6px 12px; color: var(--bone); }
+
+.two { display: grid; gap: 24px; grid-template-columns: 1fr 1fr; align-items: center; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+.two img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--panel-edge); }
+
+/* Articles (privacy / credits) */
+.article { max-width: 46rem; margin: 0 auto; padding: 20px 0 50px; }
+.article h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.article h2 { font-size: 1.05rem; margin-top: 2em; }
+.article ul { padding-left: 1.2em; }
+.article .effective { color: var(--bone-dim); font-style: italic; }
+.lang { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; }
+
+/* Footer */
+footer { border-top: 1px solid var(--panel-edge); padding: 26px 0 40px; color: var(--bone-dim); font-size: 0.9rem; }
+footer .links a { margin-right: 16px; }
