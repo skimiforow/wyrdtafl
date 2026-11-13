@@ -71,14 +71,41 @@
    * 4. Hero embers
    * A small particle system on a 2D canvas: warm sparks rise from the
    * lower left (Muspelheim), cold flakes drift down on the right
-   * (Niflheim), matching the table's two sides. Capped particle count,
-   * device-pixel-ratio capped at 2, and stopped whenever the hero is not
-   * visible.
+   * (Niflheim), matching the table's two sides.
+   * Performance matters here because the canvas is composited over the
+   * playing hero film every frame:
+   *  - each glow is a sprite pre-rendered once and stamped with drawImage
+   *    (canvas shadowBlur per particle is a blur pass per draw call);
+   *  - the canvas renders at 1 CSS pixel per pixel: the motes are soft
+   *    glows, so a Retina backing store would only quadruple the fill cost;
+   *  - the particle count is capped and the loop stops off screen.
    * ------------------------------------------------------------------ */
   var canvas = document.querySelector('.hero canvas.embers');
   if (canvas && canvas.getContext && !reduceMotion) {
     var ctx = canvas.getContext('2d');
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var dpr = 1;
+
+    /**
+     * Pre-renders one soft glow: a bright core fading to transparent.
+     * @param {string} core Colour at the centre (rgba).
+     * @param {string} halo Colour of the glow ring (rgba).
+     * @returns {HTMLCanvasElement} a 32×32 sprite.
+     */
+    var sprite = function (core, halo) {
+      var c = document.createElement('canvas');
+      c.width = c.height = 32;
+      var g = c.getContext('2d');
+      var grd = g.createRadialGradient(16, 16, 0, 16, 16, 16);
+      grd.addColorStop(0, core);
+      grd.addColorStop(0.18, core);
+      grd.addColorStop(0.4, halo);
+      grd.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grd;
+      g.fillRect(0, 0, 32, 32);
+      return c;
+    };
+    var EMBER = sprite('rgba(255,200,120,1)', 'rgba(255,110,30,0.45)');
+    var FROST = sprite('rgba(230,248,255,1)', 'rgba(150,220,255,0.3)');
     var W = 0, H = 0, parts = [], running = false, last = 0;
 
     var resize = function () {
@@ -107,7 +134,7 @@
       };
     };
 
-    var count = function () { return Math.min(90, Math.round(W * H / 16000)); };
+    var count = function () { return Math.min(60, Math.round(W * H / 20000)); };
 
     var tick = function (now) {
       if (!running) return;
@@ -125,13 +152,12 @@
         if (t >= 1 || q.y < -20 || q.y > H + 20) { parts[i] = spawn(false); continue; }
         // Fade in and out over the particle's life; embers flicker.
         var a = Math.sin(Math.PI * t) * (q.ember ? 0.55 + 0.45 * Math.sin(now / 90 + q.phase) : 0.7);
-        ctx.beginPath();
-        ctx.arc(q.x, q.y, q.r, 0, 6.283);
-        ctx.fillStyle = q.ember ? 'rgba(255,' + (120 + (q.phase * 12 | 0)) + ',40,' + (a * 0.9).toFixed(3) + ')' : 'rgba(200,236,255,' + (a * 0.55).toFixed(3) + ')';
-        ctx.shadowBlur = q.ember ? 8 : 4;
-        ctx.shadowColor = q.ember ? 'rgba(255,110,30,0.9)' : 'rgba(150,220,255,0.6)';
-        ctx.fill();
+        // Stamp the pre-rendered glow; its size is about 5× the mote's core radius.
+        var size = q.r * (q.ember ? 6 : 4.5);
+        ctx.globalAlpha = Math.max(0, q.ember ? a * 0.9 : a * 0.55);
+        ctx.drawImage(q.ember ? EMBER : FROST, q.x - size / 2, q.y - size / 2, size, size);
       }
+      ctx.globalAlpha = 1;
       requestAnimationFrame(tick);
     };
 

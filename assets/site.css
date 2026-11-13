@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Cinzel';
-  src: url('Cinzel[wght].ttf') format('truetype');
+  src: url('Cinzel-Variable.ttf') format('truetype');
   font-weight: 400 900;
   font-display: swap;
 }
@@ -56,6 +56,9 @@
 
   /* Motion: a soft spring-like ease-out used everywhere for consistency. */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* SVG fractal noise tile used as film grain (see body below). */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
 /* ---------- Base ---------- */
@@ -72,16 +75,13 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-/* Film grain over the whole page: breaks up banding in the dark gradients
-   and gives the flat blacks a slightly physical, printed feel. */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 100;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Film grain: breaks up banding in the dark gradients and gives the flat
+   blacks a printed feel. It lives on the page background (painted once and
+   scrolled), not in a fixed full-screen overlay: an overlay above the hero
+   film would have to be blended again on every video frame. The hero and the
+   cinematic backdrops cover it, which is fine: the film has its own grain. */
+body {
+  background-image: var(--grain);
 }
 img, video { max-width: 100%; display: block; }
 a { color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -151,11 +151,13 @@ h3 { font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.3rem); letter-spacing: 0.06em; 
 .site-nav a:hover { color: var(--gold-hi); }
 .site-nav a:hover::after { transform: scaleX(1); }
 .site-nav .nav-cta {
-  color: #1a1206; padding: 9px 16px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #1a1206; padding: 9px 16px; border-radius: 999px; line-height: 1;
   background: linear-gradient(180deg, var(--gold-hi), var(--gold) 50%, var(--gold-deep));
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .site-nav .nav-cta::after { display: none; }
+.site-nav .nav-cta svg { width: 13px; height: 13px; flex: none; }
 .site-nav .nav-cta:hover { color: #000; filter: brightness(1.07); }
 
 /* Home page: the header floats over the hero and turns into frosted glass
@@ -170,7 +172,13 @@ h3 { font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.3rem); letter-spacing: 0.06em; 
 @media (max-width: 720px) {
   /* On phones keep only the brand and the call to action; the page is short enough to scroll. */
   .site-head-bar .site-nav a:not(.nav-cta) { display: none; }
-  .site-head-bar .site-head { flex-wrap: nowrap; }
+  .site-head-bar .site-head { flex-wrap: nowrap; min-height: 60px; }
+  /* A compact pill on phones: it must not compete with the hero's own
+     call to action right below it. */
+  .site-nav .nav-cta { padding: 8px 13px; font-size: 0.62rem; letter-spacing: 0.14em; gap: 6px; }
+  .site-nav .nav-cta svg { width: 11px; height: 11px; }
+  .brand { font-size: 0.82rem; letter-spacing: 0.2em; gap: 10px; }
+  .brand img { width: 30px; height: 30px; }
 }
 
 /* ---------- Buttons ---------- */
@@ -258,6 +266,13 @@ h3 { font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.3rem); letter-spacing: 0.06em; 
 .hero-facts li { display: inline-flex; align-items: center; gap: 8px; }
 .hero-facts li::before { content: ''; width: 5px; height: 5px; transform: rotate(45deg); background: var(--gold-deep); }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+@media (max-width: 520px) {
+  /* Phones: the two hero buttons stack at the same width instead of a wide
+     gold slab above a narrower outline button. */
+  .hero-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 330px; margin: 0 auto; }
+  .hero-cta .btn { min-height: 54px; padding: 10px 20px; }
+  .hero-facts { gap: 6px 16px; font-size: 0.62rem; }
+}
 
 .scroll-cue {
   position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
@@ -549,8 +564,8 @@ footer .links a { margin-right: 16px; }
 
 /* ---------- Article pages (privacy, credits, data deletion) ---------- */
 body:not(.home) {
-  background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(255, 90, 20, 0.08), transparent 70%), radial-gradient(ellipse 50% 40% at 100% 0%, rgba(80, 190, 255, 0.06), transparent 70%);
-  background-repeat: no-repeat;
+  background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(255, 90, 20, 0.08), transparent 70%), radial-gradient(ellipse 50% 40% at 100% 0%, rgba(80, 190, 255, 0.06), transparent 70%), var(--grain);
+  background-repeat: no-repeat, no-repeat, repeat;
 }
 body:not(.home) > header.site-head { max-width: none; padding-left: var(--bleed); padding-right: var(--bleed); border-bottom: 1px solid var(--edge); }
 .article { max-width: 46rem; margin: 0 auto; padding: 40px var(--gutter) 80px; }
