@@ -2,104 +2,493 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wyrdtafl — The Judgement of the Norns · A Norse tile game for Android</title>
-  <meta name="description" content="Wyrdtafl is a Norse tile duel for Android: balance Fire and Ice, bet your Wyrd, cast Galdr Stones and cross the Nine Realms before the Norns judge you. By Skimiforow.">
-  <meta name="theme-color" content="#0b0907">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wyrdtafl — The Judgement of the Norns · Norse tile duel for Android</title>
+  <meta name="description" content="Balance Fire and Ice, bet your Wyrd and cross the Nine Realms before the Norns pass judgement. Wyrdtafl is a dark Norse tile duel for Android: single player, offline, no ads, no in-app purchases.">
+  <meta name="theme-color" content="#07070a">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://skimiforow.github.io/wyrdtafl/">
   <link rel="icon" href="assets/icon-512.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-512.png">
-  <meta property="og:title" content="Wyrdtafl — The Judgement of the Norns">
-  <meta property="og:description" content="A Norse tile duel for Android. Balance Fire and Ice, bet your Wyrd, survive the Nine Realms.">
-  <meta property="og:image" content="https://skimiforow.github.io/wyrdtafl/assets/feature-graphic.png">
+
+  <!-- Social cards: the Play Store feature graphic is already 1024×500 and on-brand. -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wyrdtafl">
+  <meta property="og:title" content="Wyrdtafl — The Judgement of the Norns">
+  <meta property="og:description" content="A dark Norse tile duel for Android. Balance Fire and Ice, bet your Wyrd, survive the Nine Realms.">
+  <meta property="og:image" content="https://skimiforow.github.io/wyrdtafl/assets/feature-graphic.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
   <meta property="og:url" content="https://skimiforow.github.io/wyrdtafl/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- The display face and the hero poster are needed for the first paint. -->
+  <link rel="preload" href="assets/Cinzel[wght].ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
+
+  <!-- Structured data so search engines can show the game as a game, not a generic page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["VideoGame", "MobileApplication"],
+    "name": "Wyrdtafl — The Judgement of the Norns",
+    "alternateName": "Wyrdtafl",
+    "description": "A single-player Norse tile duel for Android against one to three AI champions. Balance Fire and Ice, bet your Wyrd, cast Galdr Stones and cross the Nine Realms.",
+    "url": "https://skimiforow.github.io/wyrdtafl/",
+    "image": "https://skimiforow.github.io/wyrdtafl/assets/feature-graphic.png",
+    "genre": ["Board game", "Strategy", "Roguelite"],
+    "gamePlatform": "Android",
+    "operatingSystem": "Android",
+    "applicationCategory": "GameApplication",
+    "playMode": "SinglePlayer",
+    "inLanguage": ["en", "pt-PT", "es", "fr", "de", "it", "pl", "tr"],
+    "author": { "@type": "Person", "name": "Skimiforow" },
+    "publisher": { "@type": "Person", "name": "Skimiforow" }
+  }
+  </script>
+  <!-- Mark the document as scripted before first paint, so .reveal elements
+       start hidden only when the script that reveals them will actually run. -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="home">
   <a class="skip" href="#main">Skip to content</a>
-  <header class="wrap site-head">
-    <a class="brand" href="./" aria-label="Wyrdtafl home"><img src="assets/icon-512.png" alt="" width="40" height="40">WYRDTAFL</a>
-    <nav class="site-nav" aria-label="Site">
-      <a href="#features">The table</a>
-      <a href="#screens">Screens</a>
-      <a href="credits/">Credits</a>
-      <a href="privacy/">Privacy</a>
-    </nav>
-  </header>
+
+  <!-- ===================== Header ===================== -->
+  <div class="site-head-bar" id="top-bar">
+    <header class="wrap site-head">
+      <a class="brand" href="./" aria-label="Wyrdtafl home"><img src="assets/icon-512.png" alt="" width="36" height="36">WYRDTAFL</a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="#how">How it plays</a>
+        <a href="#realms">The Realms</a>
+        <a href="#screens">Screens</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.wyrdtafl.game" rel="noopener">Google Play</a>
+      </nav>
+    </header>
+  </div>
 
   <main id="main">
-    <section class="wrap hero">
-      <h1 class="visually-hidden" style="position:absolute;left:-9999px">Wyrdtafl — The Judgement of the Norns</h1>
-      <img class="feature" src="assets/feature-graphic.png" width="1024" height="500" alt="Wyrdtafl — The Judgement of the Norns: the title carved into a broken rune stone, embers on one side and frost on the other">
-      <p class="lead">A Norse tile duel for Android. Two tiles in your hand — one of Fire, one of Ice. Keep them in balance, bet your Wyrd, cast the Galdr Stones, and sit the table of every realm before the Norns pass judgement.</p>
-      <p class="meta">Single player · 1 to 3 AI rivals · Portrait and landscape · Plays offline · Google Play Games achievements, leaderboards and cloud save · No ads, no in-app purchases</p>
-      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.wyrdtafl.game" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3 13.2 12 3.6 21.7c-.3-.3-.5-.8-.5-1.3V3.6c0-.5.2-1 .5-1.3zm11 9.7 2.9-2.9 3.9 2.2c1 .6 1 1.9 0 2.5l-3.9 2.2L14.6 12zm-1.4 1.4 2.9 2.9-10.6 6c-.5.3-1 .3-1.5.2L13.2 13.4zM4 1.5c.5-.1 1 0 1.5.2l10.6 6-2.9 2.9L4 1.5z"/></svg>
-        <span>Get it on Google Play<small>Paid game · listing coming soon</small></span>
-      </a>
-    </section>
-
-    <div class="rule"></div>
-
-    <section class="wrap" id="features">
-      <h2>What happens at the table</h2>
-      <p class="muted" style="max-width:48rem">Every hand is two tiles, Embers and Frost, each worth I to VI. The difference between them is your <strong>Dissonance</strong>. After three omens the Norns judge every hand: the lowest Dissonance wins, a pair is <strong>Harmony</strong>, and the losers pay in Wyrd Stones.</p>
-      <div class="grid">
-        <article class="card"><div class="glyph ember" aria-hidden="true">ᚠ</div><h3>Meditate or Forge Destiny</h3><p>Keep your tiles for free, or bet a Wyrd Stone to draw from a deck or a face-up Pyre. Every draw is a gamble with the balance of your soul.</p></article>
-        <article class="card"><div class="glyph gold" aria-hidden="true">ᛟ</div><h3>Wyrd Stones</h3><p>Your fate, in pebbles. Winners take their stake back from the Altar; losers feed the Well of Urd. Reach zero and you are banished to Helheim.</p></article>
-        <article class="card"><div class="glyph frost" aria-hidden="true">ᛉ</div><h3>Twenty Galdr Stones</h3><p>Carry three spells into every match, each usable once and no more than two of a kind: Harvest stones back, strike your rivals with Wrath, bend the omens with Chaos or hide behind the Veil. Awaken them in Mímir's Tree for a stronger form.</p></article>
-        <article class="card"><div class="glyph ember" aria-hidden="true">ᛚ</div><h3>Loki and Yggdrasil</h3><p>Wild tiles with no value of their own. Loki rolls two bone dice and lets you keep one; Yggdrasil lets you name the value — if you dare.</p></article>
-        <article class="card"><div class="glyph gold" aria-hidden="true">ᚱ</div><h3>The Crossing</h3><p>Nine realms, nine tables, one thread of Wyrd. Choose your path across a living map, from Midgard to Asgard: skirmishes against wandering rivals, the champion of every realm on their own ground, four difficulties up to Ragnarök. Win a table and the Norns' wheel may grant you more Wyrd.</p></article>
-        <article class="card"><div class="glyph ember" aria-hidden="true">ᛊ</div><h3>Shrines on the road</h3><p>Some realms hide a shrine and a bargain: a Völva selling a relic, Mímir's well, Brokkr's forge awakening a stone, a throw of Loki's bone, Týr's altar. Every gift has a price.</p></article>
-        <article class="card"><div class="glyph frost" aria-hidden="true">ᚾ</div><h3>Threads of Fate</h3><p>Beat Ragnarök and the Norns let you tie their threads into your next crossing: iron champions, cold Pyres, Fenrir's chain, a crowd at every table. Harder tables, greater Echoes, and a Weight of Destiny to show for it.</p></article>
-        <article class="card"><div class="glyph frost" aria-hidden="true">ᚹ</div><h3>Valhalla and the Daily Table</h3><p>Hold the table of the fallen wave after wave in Valhalla, and sit the same seeded Daily Table as every other traveller to beat your own best.</p></article>
-        <article class="card"><div class="glyph gold" aria-hidden="true">ᛗ</div><h3>Mímir's Tree, Deeds and Saga</h3><p>Spend Honor Echoes on permanent power, chase ten Deeds, and read everything the Norns have written about you so far. With Google Play Games, Deeds become achievements, your records climb the leaderboards and your progress follows you to a new phone.</p></article>
-        <article class="card"><div class="glyph ember" aria-hidden="true">ᛞ</div><h3>Skins and totems</h3><p>Tiles in Roman numerals, pips, tally notches or runic calendar staves; bone, amber or meteoric-iron dice; stones, tables and animated totems that react to your play.</p></article>
+    <!-- ===================== Hero =====================
+         Background: a 15-second, muted loop cut from the game's own opening
+         film (the walker, Odin's raven, the watchtower). The poster image is
+         always in the page; the script only attaches the video when motion
+         and data saving allow it. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <picture>
+          <source media="(max-aspect-ratio: 3/4)" srcset="assets/media/hero-tall.jpg">
+          <img src="assets/media/hero-wide.jpg" alt="" width="1280" height="576" fetchpriority="high">
+        </picture>
+        <video id="hero-video" muted loop playsinline preload="none"
+               data-wide="assets/media/hero-wide.mp4" data-tall="assets/media/hero-tall.mp4"></video>
       </div>
-    </section>
+      <canvas class="embers" aria-hidden="true"></canvas>
 
-    <section class="wrap">
-      <div class="two">
-        <div>
-          <h2>Made of code and candlelight</h2>
-          <p>Everything on the table is drawn and sounded by code: the hewn rune stone, the bronze Wheel of the Norns, the physics of the bone dice, the embers of Muspelheim and the rime of Niflheim. A synthesised Nordic score and the voices of the Norns follow every turn.</p>
-          <p class="muted">Haptics on impacts and choices. Designed for phones in either orientation and for tablets and desktop mode. No account and no connection needed to play; sign in to Google Play Games only if you want achievements, leaderboards and cloud save.</p>
-          <h3 style="margin-top:1.4em">The Nine Realms</h3>
-          <ul class="realms" aria-label="Realms">
-            <li>Midgard</li><li>Svartalfheim</li><li>Jotunheim</li><li>Muspelheim</li><li>Niflheim</li><li>Alfheim</li><li>Vanaheim</li><li>Helheim</li><li>Asgard</li>
-          </ul>
+      <div class="wrap hero-inner">
+        <!-- The logotype is the game's own procedural SVG (scripts/lib/brand-art.mjs in the game repo), inlined so it uses this page's Cinzel and stays crisp at any size. -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -4 412 276" preserveAspectRatio="xMidYMid meet" class="logo-stone" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Wyrdtafl</title><defs>
+    <linearGradient id="base-st" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#70737b"/><stop offset="0.5" stop-color="#4a4d55"/><stop offset="1" stop-color="#282a2f"/></linearGradient>
+    <radialGradient id="vignette-st" cx="0.5" cy="0.45" r="0.65"><stop offset="0.55" stop-color="rgba(0,0,0,0)"/><stop offset="1" stop-color="rgba(0,0,0,0.55)"/></radialGradient>
+    <radialGradient id="emberTint-st" cx="0.12" cy="0.95" r="0.75"><stop offset="0" stop-color="rgba(255,110,30,0.42)"/><stop offset="0.45" stop-color="rgba(255,90,20,0.14)"/><stop offset="1" stop-color="rgba(255,90,20,0)"/></radialGradient>
+    <radialGradient id="frostTint-st" cx="1" cy="0.08" r="0.62"><stop offset="0" stop-color="rgba(225,246,255,0.5)"/><stop offset="0.5" stop-color="rgba(120,190,230,0.16)"/><stop offset="1" stop-color="rgba(120,190,230,0)"/></radialGradient>
+    <linearGradient id="gold-st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3cc"/><stop offset="0.42" stop-color="#f5c76b"/><stop offset="0.78" stop-color="#c98a32"/><stop offset="1" stop-color="#8a5a1c"/></linearGradient>
+    <linearGradient id="bronze-st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2b97a"/><stop offset="0.55" stop-color="#a8762f"/><stop offset="1" stop-color="#5a3414"/></linearGradient>
+    <linearGradient id="halo-st" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(255,106,18,0.55)"/><stop offset="0.5" stop-color="rgba(255,150,60,0.05)"/><stop offset="1" stop-color="rgba(59,169,230,0.5)"/></linearGradient>
+    <filter id="relief-st" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.05" numOctaves="5" seed="7" result="noise"/><feDiffuseLighting in="noise" surfaceScale="3.2" lighting-color="#d8d2c6"><feDistantLight azimuth="225" elevation="48"/></feDiffuseLighting></filter>
+    <filter id="grain-st" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.3 0.35" numOctaves="2" seed="3" result="noise"/><feDiffuseLighting in="noise" surfaceScale="1.2" lighting-color="#e8e2d6"><feDistantLight azimuth="235" elevation="55"/></feDiffuseLighting></filter>
+    <filter id="glow-st" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="4.5" result="blur"/><feFlood flood-color="#ff8a2a" flood-opacity="0.5"/><feComposite in2="blur" operator="in" result="halo"/><feMerge><feMergeNode in="halo"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="ember-st" x="-20%" y="-10%" width="140%" height="120%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="mote-st" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="0.6"/></filter>
+    <filter id="haloBlur-st" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="drop-st" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity="0.75"/></filter>
+    <clipPath id="left-st"><polygon points="18,34 70,16 190,10 262,8 254,40 268,70 250,104 262,138 244,170 256,204 238,232 240,258 120,256 40,246 8,200 6,110"/></clipPath>
+    <clipPath id="right-st"><polygon points="262,8 340,14 388,36 394,120 384,206 356,250 240,258 238,232 256,204 244,170 262,138 250,104 268,70 254,40"/></clipPath>
+  </defs>
+  <ellipse cx="200" cy="138" rx="205" ry="128" fill="url(#halo-st)" filter="url(#haloBlur-st)"/>
+  <path d="M262 8 L254 40 L268 70 L250 104 L262 138 L244 170 L256 204 L238 232 L240 258" fill="none" stroke="#ff6a12" stroke-width="16" opacity="0.75" filter="url(#ember-st)"/>
+  <path d="M262 8 L254 40 L268 70 L250 104 L262 138 L244 170 L256 204 L238 232 L240 258" fill="none" stroke="#ffd27a" stroke-width="3" opacity="0.9"/>
+  <g filter="url(#drop-st)">
+    <g clip-path="url(#left-st)"><g>
+    <polygon points="18,34 70,16 190,10 262,8 340,14 388,36 394,120 384,206 356,250 240,258 120,256 40,246 8,200 6,110" fill="url(#base-st)"/>
+    <rect x="0" y="0" width="400" height="270" filter="url(#relief-st)" opacity="0.55" style="mix-blend-mode:multiply"/>
+    <rect x="0" y="0" width="400" height="270" filter="url(#grain-st)" opacity="0.22" style="mix-blend-mode:multiply"/>
+    <rect x="0" y="0" width="400" height="270" fill="url(#emberTint-st)"/>
+    <rect x="0" y="0" width="400" height="270" fill="url(#frostTint-st)"/>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M392 40 L348 62 L318 70" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M392 40 L348 62 L318 70" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M348 62 L352 44" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M348 62 L352 44" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M348 62 L334 80" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M348 62 L334 80" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M388 86 L350 96 L322 92" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M388 86 L350 96 L322 92" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M350 96 L344 112" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M350 96 L344 112" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M372 22 L352 40 L338 42" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M372 22 L352 40 L338 42" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M390 130 L362 124 L344 128" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M390 130 L362 124 L344 128" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M362 124 L358 140" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M362 124 L358 140" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M318 70 L306 64" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M318 70 L306 64" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M322 92 L310 100" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M322 92 L310 100" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/></g>
+    <g fill="#f4fbff" opacity="0.8"><circle cx="356" cy="52" r="1.3"/><circle cx="376" cy="104" r="1.1"/><circle cx="330" cy="86" r="0.9"/><circle cx="366" cy="136" r="1.0"/></g>
+    <rect x="0" y="0" width="400" height="270" fill="url(#vignette-st)"/>
+    <path d="M36 44 L364 40 L372 214 L36 222 Z" fill="none" stroke="#0c0c0f" stroke-width="2.4"/>
+    <path d="M37 46 L365 42 L373 216 L37 224 Z" fill="none" stroke="rgba(255,235,200,0.16)" stroke-width="1"/>
+    <g transform="translate(65.0 22) scale(0.62)"><path d="M5 0V16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(85.0 22) scale(0.62)"><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(105.0 22) scale(0.62)"><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(125.0 22) scale(0.62)"><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(145.0 22) scale(0.62)"><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(165.0 22) scale(0.62)"><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(185.0 22) scale(0.62)"><path d="M2 16V0L8 4L2 8" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 16V0L8 4L2 8" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(205.0 22) scale(0.62)"><path d="M2 16L5 0L8 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 16L5 0L8 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(225.0 22) scale(0.62)"><path d="M5 0V16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(245.0 22) scale(0.62)"><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(265.0 22) scale(0.62)"><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(285.0 22) scale(0.62)"><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(305.0 22) scale(0.62)"><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(325.0 22) scale(0.62)"><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g>
+    <g fill="none" stroke="rgba(8,8,10,0.75)" stroke-width="1.2" stroke-linecap="round"><path d="M18 120 L40 128 L52 150 L46 170"/><path d="M120 256 L128 236 L150 228"/><path d="M340 14 L332 30 L344 46"/><path d="M388 140 L370 150 L366 176"/><path d="M70 60 L82 74"/></g>
+    <g>
+      <path d="M58 206 H166" stroke="#06050a" stroke-width="5" stroke-linecap="round" opacity="0.75" transform="translate(0 1.4)"/>
+      <path d="M234 206 H342" stroke="#06050a" stroke-width="5" stroke-linecap="round" opacity="0.75" transform="translate(0 1.4)"/>
+      <path d="M58 206 H166" stroke="url(#bronze-st)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M234 206 H342" stroke="url(#bronze-st)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M58 201 L63 206 L58 211 L53 206 Z M342 201 L347 206 L342 211 L337 206 Z" fill="url(#bronze-st)" stroke="#06050a" stroke-width="0.8"/>
+      <circle cx="200" cy="206" r="19" fill="#ff8a2a" opacity="0.28" filter="url(#ember-st)"/>
+      <circle cx="200" cy="207.2" r="14" fill="none" stroke="#06050a" stroke-width="3.4" opacity="0.8"/>
+    <circle cx="200" cy="206" r="14" fill="none" stroke="url(#bronze-st)" stroke-width="2.6"/>
+    <circle cx="200" cy="206" r="9.24" fill="none" stroke="url(#bronze-st)" stroke-width="1" opacity="0.7"/>
+    <line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(0 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(45 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(90 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(135 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(180 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(225 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(270 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(315 200 206)"/>
+    <circle cx="200" cy="206" r="2.52" fill="#fff1c2" stroke="#2a1a08" stroke-width="0.8"/>
+    <path d="M200 189 L197.6 194 L202.4 194 Z" fill="#fff1c2"/>
+    </g>
+    <g font-family="Cinzel, 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif" font-weight="700" text-anchor="middle" font-size="57" textLength="334" lengthAdjust="spacingAndGlyphs">
+      <text x="202.5" y="162.5" fill="#070504">WYRDTAFL</text>
+      <text x="198.8" y="158.6" fill="rgba(255,240,210,0.38)">WYRDTAFL</text>
+      <text x="200" y="160" fill="url(#gold-st)" filter="url(#glow-st)">WYRDTAFL</text>
+    </g>
+    <g fill="#ffb45a" filter="url(#mote-st)"><circle cx="246" cy="214" r="1.6" opacity="0.55"/><circle cx="258" cy="182" r="1.2" opacity="0.7000000000000001"/><circle cx="266" cy="150" r="1.4" opacity="0.8500000000000001"/><circle cx="250" cy="118" r="1.1" opacity="0.55"/><circle cx="60" cy="226" r="1.3" opacity="0.7000000000000001"/><circle cx="84" cy="236" r="1" opacity="0.8500000000000001"/><circle cx="40" cy="196" r="1.2" opacity="0.55"/><circle cx="108" cy="244" r="0.9" opacity="0.7000000000000001"/></g>
+  </g></g>
+    <polygon points="18,34 70,16 190,10 262,8 254,40 268,70 250,104 262,138 244,170 256,204 238,232 240,258 120,256 40,246 8,200 6,110" fill="none" stroke="rgba(255,245,225,0.22)" stroke-width="2" transform="translate(-1 -1)"/>
+    <polygon points="18,34 70,16 190,10 262,8 254,40 268,70 250,104 262,138 244,170 256,204 238,232 240,258 120,256 40,246 8,200 6,110" fill="none" stroke="#08080a" stroke-width="2.5"/>
+    <g transform="translate(7 9) rotate(2.2 320 130)">
+      <g clip-path="url(#right-st)"><g>
+    <polygon points="18,34 70,16 190,10 262,8 340,14 388,36 394,120 384,206 356,250 240,258 120,256 40,246 8,200 6,110" fill="url(#base-st)"/>
+    <rect x="0" y="0" width="400" height="270" filter="url(#relief-st)" opacity="0.55" style="mix-blend-mode:multiply"/>
+    <rect x="0" y="0" width="400" height="270" filter="url(#grain-st)" opacity="0.22" style="mix-blend-mode:multiply"/>
+    <rect x="0" y="0" width="400" height="270" fill="url(#emberTint-st)"/>
+    <rect x="0" y="0" width="400" height="270" fill="url(#frostTint-st)"/>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M392 40 L348 62 L318 70" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M392 40 L348 62 L318 70" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M348 62 L352 44" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M348 62 L352 44" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M348 62 L334 80" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M348 62 L334 80" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M388 86 L350 96 L322 92" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M388 86 L350 96 L322 92" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M350 96 L344 112" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M350 96 L344 112" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M372 22 L352 40 L338 42" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M372 22 L352 40 L338 42" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M390 130 L362 124 L344 128" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M390 130 L362 124 L344 128" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M362 124 L358 140" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M362 124 L358 140" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M318 70 L306 64" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M318 70 L306 64" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/><path d="M322 92 L310 100" stroke="rgba(10,30,50,0.6)" stroke-width="3" transform="translate(0.6 1.2)"/><path d="M322 92 L310 100" stroke="#e6f7ff" stroke-width="1.4" opacity="0.92"/></g>
+    <g fill="#f4fbff" opacity="0.8"><circle cx="356" cy="52" r="1.3"/><circle cx="376" cy="104" r="1.1"/><circle cx="330" cy="86" r="0.9"/><circle cx="366" cy="136" r="1.0"/></g>
+    <rect x="0" y="0" width="400" height="270" fill="url(#vignette-st)"/>
+    <path d="M36 44 L364 40 L372 214 L36 222 Z" fill="none" stroke="#0c0c0f" stroke-width="2.4"/>
+    <path d="M37 46 L365 42 L373 216 L37 224 Z" fill="none" stroke="rgba(255,235,200,0.16)" stroke-width="1"/>
+    <g transform="translate(65.0 22) scale(0.62)"><path d="M5 0V16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(85.0 22) scale(0.62)"><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(105.0 22) scale(0.62)"><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(125.0 22) scale(0.62)"><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(145.0 22) scale(0.62)"><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(165.0 22) scale(0.62)"><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(185.0 22) scale(0.62)"><path d="M2 16V0L8 4L2 8" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 16V0L8 4L2 8" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(205.0 22) scale(0.62)"><path d="M2 16L5 0L8 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 16L5 0L8 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(225.0 22) scale(0.62)"><path d="M5 0V16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(245.0 22) scale(0.62)"><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M8 0V16M2 7L8 9" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(265.0 22) scale(0.62)"><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0L8 16M8 0L2 16" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(285.0 22) scale(0.62)"><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M2 0V16M2 3L8 7L2 11" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(305.0 22) scale(0.62)"><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 0V16M1 5L5 9L9 5" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g><g transform="translate(325.0 22) scale(0.62)"><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="rgba(255,235,200,0.2)" stroke-width="3" transform="translate(0.8 1.2)"/><path d="M5 16V0M2 4L5 0L8 4" fill="none" stroke="#0d0d10" stroke-width="2.4" stroke-linecap="square"/></g>
+    <g fill="none" stroke="rgba(8,8,10,0.75)" stroke-width="1.2" stroke-linecap="round"><path d="M18 120 L40 128 L52 150 L46 170"/><path d="M120 256 L128 236 L150 228"/><path d="M340 14 L332 30 L344 46"/><path d="M388 140 L370 150 L366 176"/><path d="M70 60 L82 74"/></g>
+    <g>
+      <path d="M58 206 H166" stroke="#06050a" stroke-width="5" stroke-linecap="round" opacity="0.75" transform="translate(0 1.4)"/>
+      <path d="M234 206 H342" stroke="#06050a" stroke-width="5" stroke-linecap="round" opacity="0.75" transform="translate(0 1.4)"/>
+      <path d="M58 206 H166" stroke="url(#bronze-st)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M234 206 H342" stroke="url(#bronze-st)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M58 201 L63 206 L58 211 L53 206 Z M342 201 L347 206 L342 211 L337 206 Z" fill="url(#bronze-st)" stroke="#06050a" stroke-width="0.8"/>
+      <circle cx="200" cy="206" r="19" fill="#ff8a2a" opacity="0.28" filter="url(#ember-st)"/>
+      <circle cx="200" cy="207.2" r="14" fill="none" stroke="#06050a" stroke-width="3.4" opacity="0.8"/>
+    <circle cx="200" cy="206" r="14" fill="none" stroke="url(#bronze-st)" stroke-width="2.6"/>
+    <circle cx="200" cy="206" r="9.24" fill="none" stroke="url(#bronze-st)" stroke-width="1" opacity="0.7"/>
+    <line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(0 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(45 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(90 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(135 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(180 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(225 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(270 200 206)"/><line x1="200" y1="197.32" x2="200" y2="203.48" stroke="url(#bronze-st)" stroke-width="1.6" stroke-linecap="round" transform="rotate(315 200 206)"/>
+    <circle cx="200" cy="206" r="2.52" fill="#fff1c2" stroke="#2a1a08" stroke-width="0.8"/>
+    <path d="M200 189 L197.6 194 L202.4 194 Z" fill="#fff1c2"/>
+    </g>
+    <g font-family="Cinzel, 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif" font-weight="700" text-anchor="middle" font-size="57" textLength="334" lengthAdjust="spacingAndGlyphs">
+      <text x="202.5" y="162.5" fill="#070504">WYRDTAFL</text>
+      <text x="198.8" y="158.6" fill="rgba(255,240,210,0.38)">WYRDTAFL</text>
+      <text x="200" y="160" fill="url(#gold-st)" filter="url(#glow-st)">WYRDTAFL</text>
+    </g>
+    <g fill="#ffb45a" filter="url(#mote-st)"><circle cx="246" cy="214" r="1.6" opacity="0.55"/><circle cx="258" cy="182" r="1.2" opacity="0.7000000000000001"/><circle cx="266" cy="150" r="1.4" opacity="0.8500000000000001"/><circle cx="250" cy="118" r="1.1" opacity="0.55"/><circle cx="60" cy="226" r="1.3" opacity="0.7000000000000001"/><circle cx="84" cy="236" r="1" opacity="0.8500000000000001"/><circle cx="40" cy="196" r="1.2" opacity="0.55"/><circle cx="108" cy="244" r="0.9" opacity="0.7000000000000001"/></g>
+  </g></g>
+      <polygon points="262,8 340,14 388,36 394,120 384,206 356,250 240,258 238,232 256,204 244,170 262,138 250,104 268,70 254,40" fill="none" stroke="rgba(255,245,225,0.22)" stroke-width="2" transform="translate(-1 -1)"/>
+      <polygon points="262,8 340,14 388,36 394,120 384,206 356,250 240,258 238,232 256,204 244,170 262,138 250,104 268,70 254,40" fill="none" stroke="#08080a" stroke-width="2.5"/>
+    </g>
+  </g>
+  
+</svg>
+        <p class="subtitle">The Judgement of the Norns</p>
+        <h1 id="hero-title">Balance <span class="ember-text">Fire</span> and <span class="frost-text">Ice</span>.<br>Or pay the Norns in Wyrd.</h1>
+        <p class="lead">A dark Norse tile duel for Android. Two tiles, three omens, one verdict — and nine realms of rivals between you and the Allfather's seat.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="https://play.google.com/store/apps/details?id=com.wyrdtafl.game" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3 13.2 12 3.6 21.7c-.3-.3-.5-.8-.5-1.3V3.6c0-.5.2-1 .5-1.3zm11 9.7 2.9-2.9 3.9 2.2c1 .6 1 1.9 0 2.5l-3.9 2.2L14.6 12zm-1.4 1.4 2.9 2.9-10.6 6c-.5.3-1 .3-1.5.2L13.2 13.4zM4 1.5c.5-.1 1 0 1.5.2l10.6 6-2.9 2.9L4 1.5z"/></svg>
+            <span class="btn-text">Google Play<small>Coming soon · one price, the whole game</small></span>
+          </a>
+          <a class="btn btn-ghost" href="#how">How it plays</a>
         </div>
-        <img src="assets/screens/land-02-alfheim.jpg" width="1000" height="563" alt="The table in Alfheim: a round rune-stone table under green light, the player's two tiles glowing, three AI champions' hands around it" loading="lazy">
+        <ul class="hero-facts" aria-label="At a glance">
+          <li>Single player</li>
+          <li>Plays offline</li>
+          <li>No ads</li>
+          <li>No in-app purchases</li>
+        </ul>
+      </div>
+      <a class="scroll-cue" href="#how" aria-label="Scroll to how it plays">Descend<span></span></a>
+    </section>
+
+    <!-- ===================== Pillars ===================== -->
+    <div class="wrap">
+      <ul class="pillars reveal" role="list" style="list-style:none;padding:0">
+        <li class="pillar">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7.5"/><path d="M16 4v5M16 23v5M4 16h5M23 16h5M7.5 7.5l3.5 3.5M21 21l3.5 3.5M24.5 7.5 21 11M11 21l-3.5 3.5"/><circle cx="16" cy="16" r="1.8" fill="currentColor"/></svg>
+          <div><h3>1 to 3 rivals</h3><p>Sit the round table against AI champions who gamble, hoard and strike.</p></div>
+        </li>
+        <li class="pillar">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 3 27 9v14l-11 6L5 23V9z"/><path d="M16 3v26M5 9l11 6 11-6"/></svg>
+          <div><h3>One price</h3><p>No ads, no in-app purchases, no energy timers. The whole game is yours.</p></div>
+        </li>
+        <li class="pillar">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 26 16 5l10 21"/><path d="M10 18h12"/><path d="M3 26h26"/></svg>
+          <div><h3>Plays anywhere</h3><p>Fully offline. Portrait or landscape, phones, foldables, tablets and DeX.</p></div>
+        </li>
+        <li class="pillar">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 5h12v6a6 6 0 0 1-12 0z"/><path d="M10 7H6a4 4 0 0 0 4 6M22 7h4a4 4 0 0 1-4 6"/><path d="M16 17v5M11 27h10l-1-5h-8z"/></svg>
+          <div><h3>Play Games</h3><p>Optional achievements, leaderboards and cloud save. Eight languages.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===================== How it plays ===================== -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap rule-grid">
+        <div class="reveal">
+          <p class="eyebrow left">The one rule</p>
+          <h2 id="how-title">Lowest Dissonance wins.</h2>
+          <p class="lead">Every hand is two tiles: one of <span class="ember-text">Embers</span>, one of <span class="frost-text">Frost</span>, each worth I to VI. The gap between them is your Dissonance. A pair is Harmony — and Harmony is hard to beat.</p>
+          <ol class="steps">
+            <li><div><h3>Meditate or Forge Destiny</h3><p>Keep your tiles for free, or bet a Wyrd Stone to draw from a deck or a face-up Pyre.</p></div></li>
+            <li><div><h3>Cast your Galdr</h3><p>Three rune spells per match, each used once: harvest stones back, strike with Wrath, bend the omens.</p></div></li>
+            <li><div><h3>Face the Judgement</h3><p>After three omens the Norns rank every hand. Losers feed the Well of Urd. At zero Wyrd, Helheim waits.</p></div></li>
+          </ol>
+        </div>
+
+        <!-- Interactive demo: the player sets both tiles and sees the verdict
+             the Norns would give, so the core rule is learnt by touching it. -->
+        <div class="oracle reveal" style="--d:.12s" id="oracle">
+          <p class="oracle-title">Try a hand</p>
+          <div class="oracle-tiles">
+            <div class="tile-col">
+              <span class="tile-label ember-text">Embers</span>
+              <button class="tile ember" type="button" data-tile="ember" aria-label="Embers tile, value 2. Press to raise."><span class="num">II</span></button>
+              <div class="tile-steps">
+                <button type="button" data-step="ember:-1" aria-label="Lower the Embers tile">−</button>
+                <button type="button" data-step="ember:1" aria-label="Raise the Embers tile">+</button>
+              </div>
+            </div>
+            <div class="tile-col">
+              <span class="tile-label frost-text">Frost</span>
+              <button class="tile frost" type="button" data-tile="frost" aria-label="Frost tile, value 5. Press to raise."><span class="num">V</span></button>
+              <div class="tile-steps">
+                <button type="button" data-step="frost:-1" aria-label="Lower the Frost tile">−</button>
+                <button type="button" data-step="frost:1" aria-label="Raise the Frost tile">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="verdict" aria-live="polite">
+            <span class="verdict-word">Dissonance III</span>
+            <p class="verdict-note">A risky hand. Forge Destiny and hope the deck is kind.</p>
+          </div>
+          <p class="oracle-hint">Tap a tile, or use − and +, to change its value.</p>
+        </div>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="divider" aria-hidden="true"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="13" cy="13" r="11"/><circle cx="13" cy="13" r="6.5"/><path d="M13 2v4.5M13 19.5V24M2 13h4.5M19.5 13H24M5.2 5.2l3.2 3.2M17.6 17.6l3.2 3.2M20.8 5.2l-3.2 3.2M8.4 17.6l-3.2 3.2"/><circle cx="13" cy="13" r="1.6" fill="currentColor"/></svg></div>
 
-    <section class="wrap" id="screens">
-      <h2>Screens</h2>
-      <div class="gallery">
-        <figure><img src="assets/screens/phone-01-hall.jpg" alt="The hall: the Wyrdtafl rune stone over the table, with Quick Match, The Crossing and the Daily Table" loading="lazy"><figcaption>The hall</figcaption></figure>
-        <figure><img src="assets/screens/phone-02-muspelheim.jpg" alt="A match in Muspelheim, lava seams glowing round the table" loading="lazy"><figcaption>Muspelheim</figcaption></figure>
-        <figure><img src="assets/screens/phone-04-forge.jpg" alt="Forge Destiny: the decks and Pyres outlined in ember and frost light, waiting for your choice" loading="lazy"><figcaption>Forge Destiny</figcaption></figure>
-        <figure><img src="assets/screens/phone-07-verdict.jpg" alt="The Verdict: four hands ranked by the Norns, with Harmony, Dissonance and the Wyrd lost" loading="lazy"><figcaption>The Verdict</figcaption></figure>
-        <figure><img src="assets/screens/phone-03-crossing.jpg" alt="The Crossing: choose a difficulty and the three Galdr Stones to carry across the realms" loading="lazy"><figcaption>The Crossing</figcaption></figure>
-        <figure><img src="assets/screens/phone-05-skins.jpg" alt="Skins: tile sets from Nordic Pine to Walrus Ivory" loading="lazy"><figcaption>Skins</figcaption></figure>
-        <figure><img src="assets/screens/land-01-niflheim.jpg" alt="A landscape match in Niflheim, frost creeping over the table's rim" loading="lazy"><figcaption>Niflheim, landscape</figcaption></figure>
+    <!-- ===================== Feature rows ===================== -->
+    <section class="section" aria-label="Features">
+      <div class="wrap">
+        <article class="feature">
+          <figure class="feature-media shot reveal">
+            <img src="assets/media/shot-land-03-galdr.jpg" width="1600" height="900" loading="lazy" alt="A match at the table: the player invokes Blood Tribute, a Wrath Galdr Stone, and every opponent loses a Wyrd Stone to the Well of Urd">
+          </figure>
+          <div class="feature-copy reveal" style="--d:.1s">
+            <p class="eyebrow left">Galdr Stones</p>
+            <h2>Twenty spells. Carry three.</h2>
+            <p class="lead">Choose the stones you take into every match, each usable once and no more than two of a kind. Every cast shakes the table with runic light.</p>
+            <ul class="feature-list">
+              <li><strong>Harvest</strong> — win Wyrd Stones back from the Altar.</li>
+              <li><strong>Wrath</strong> — strike every rival's Reserve at once.</li>
+              <li><strong>Chaos and the Veil</strong> — bend the omens, or hide your hand.</li>
+              <li>Awaken them in <strong>Mímir's Tree</strong> for a stronger form.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature tall flip">
+          <figure class="feature-media shot phone violet-glow reveal">
+            <img src="assets/media/shot-phone-05-dice.jpg" width="720" height="1280" loading="lazy" alt="Skadi rolls Loki's bone dice for a Loki tile; two dice land beside the bronze Wheel of the Norns">
+          </figure>
+          <div class="feature-copy reveal" style="--d:.1s">
+            <p class="eyebrow left">Loki &amp; Yggdrasil</p>
+            <h2>Wild tiles. Real dice.</h2>
+            <p class="lead">Some tiles have no value of their own. A Loki tile rolls two bone dice — with real physics, tumbling across the stone — and lets you keep one. A Yggdrasil tile takes the value you need, if you dare to trust it.</p>
+            <ul class="feature-list">
+              <li>Bone, amber or meteoric-iron dice.</li>
+              <li>Haptics on every impact.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="feature">
+          <figure class="feature-media shot gold-glow reveal">
+            <img src="assets/media/shot-land-05-crossing.jpg" width="1600" height="900" loading="lazy" alt="The Crossing map in Helheim, realm 8 of 9: two glowing paths lead to the Gates of Hel and the bridge Gjallarbrú">
+          </figure>
+          <div class="feature-copy reveal" style="--d:.1s">
+            <p class="eyebrow left">The Crossing</p>
+            <h2>Nine tables. One thread of Wyrd.</h2>
+            <p class="lead">Choose your path across a living map from Midgard to Asgard. Skirmish with wandering rivals, face each realm's champion on their own ground, and bargain at shrines where every gift has a price.</p>
+            <ul class="feature-list">
+              <li>Four difficulties, up to <strong>Ragnarök</strong>.</li>
+              <li>A Völva's relic, Brokkr's forge, Týr's altar, a throw of Loki's bone.</li>
+              <li>Beat Ragnarök and weave the <strong>Threads of Fate</strong> into the next crossing.</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="wrap">
-      <h2>Publisher</h2>
-      <p><a href="https://skimiforow.github.io/"><strong>Skimiforow</strong></a> — an independent developer from Portugal. One table, one pair of hands. Wyrdtafl is an original game; the names of Norse myth belong to everyone.</p>
-      <p class="muted">Questions or problems: <a href="mailto:sersight+wyrdtafl@gmail.com">sersight+wyrdtafl@gmail.com</a>. The game also has a "Report a problem" form under Settings.</p>
+    <!-- ===================== The Nine Realms ===================== -->
+    <section class="section realms-section" id="realms" aria-labelledby="realms-title">
+      <div class="wrap section-head reveal">
+        <p class="eyebrow">The Nine Realms</p>
+        <h2 id="realms-title">Every realm sets its own table.</h2>
+        <p class="lead">Lava seams in Muspelheim, rime creeping over the rim in Niflheim, green ghost-light at Hel's gate. Each champion plays on home ground.</p>
+      </div>
+      <div class="realm-track" id="realm-track" tabindex="0" aria-label="The Nine Realms, scroll sideways">
+        <figure class="realm"><img src="assets/media/realm-midgard.jpg" alt="A cloaked warrior with a round shield walks through a misty forest toward a longhouse" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm I</span><h3>Midgard</h3><p>The world of men, where every crossing begins.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-svartalfheim.jpg" alt="A dwarven forge under a timber roof, molten metal pouring beside the anvil" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm II</span><h3>Svartalfheim</h3><p>Forges under the mountain, and the dwarves who work them.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-jotunheim.jpg" alt="Dark mountains and smoking fires along a winding river under a storm sky" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm III</span><h3>Jotunheim</h3><p>Giant country: stone, smoke and a cold river.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-muspelheim.jpg" alt="An erupting volcano with rivers of lava across black rock" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm IV</span><h3>Muspelheim</h3><p>The realm of fire. The table itself runs with lava.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/shot-land-04-niflheim.jpg" alt="A match in Niflheim, frost creeping over the table's rim under a blue light" loading="lazy" width="1600" height="900"><figcaption><span class="realm-num">Realm V</span><h3>Niflheim</h3><p>Mist and rime. Fimbulwinter can freeze your draw.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-alfheim.jpg" alt="Golden trees and white columns over the bright green fields of the light elves" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm VI</span><h3>Alfheim</h3><p>The bright fields of the light elves.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/screens/tablet-02-vanaheim.jpg" alt="A match in Vanaheim seen on a tablet, the table under a warm green light" loading="lazy" width="560" height="896"><figcaption><span class="realm-num">Realm VII</span><h3>Vanaheim</h3><p>Home of the Vanir, the old gods of harvest.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-helheim.jpg" alt="The gate of Hel glowing green over a dead marsh full of longships" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm VIII</span><h3>Helheim</h3><p>Hel's gate, where the banished are kept.</p></figcaption></figure>
+        <figure class="realm"><img src="assets/media/realm-asgard.jpg" alt="The Allfather's throne above the clouds, two ravens perched beside it" loading="lazy" width="1280" height="576"><figcaption><span class="realm-num">Realm IX</span><h3>Asgard</h3><p>The Allfather's seat, at the end of the thread.</p></figcaption></figure>
+      </div>
+      <div class="wrap realm-foot">
+        <p>Stills from the game's opening film and its tables.</p>
+        <div class="realm-nav">
+          <button class="round-btn" type="button" data-scroll="realm-track:-1" aria-label="Previous realms"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+          <button class="round-btn" type="button" data-scroll="realm-track:1" aria-label="Next realms"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m7.5 4 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== More tables (modes) ===================== -->
+    <section class="section" aria-labelledby="modes-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">More tables</p>
+          <h2 id="modes-title">A saga that keeps being written.</h2>
+          <p class="lead">Between crossings, the hall never empties.</p>
+        </div>
+        <div class="modes">
+          <article class="mode ember reveal"><div class="rune" aria-hidden="true">ᚹ</div><h3>Valhalla</h3><p>Hold the table of the fallen, wave after wave, and climb the leaderboard.</p></article>
+          <article class="mode gold reveal" style="--d:.06s"><div class="rune" aria-hidden="true">ᛞ</div><h3>Daily Table</h3><p>The same seeded table for every traveller, once a day. Beat your own best.</p></article>
+          <article class="mode frost reveal" style="--d:.12s"><div class="rune" aria-hidden="true">ᚠ</div><h3>Quick Match</h3><p>Choose your foes, your realm and your stones, and sit down at once.</p></article>
+          <article class="mode frost reveal"><div class="rune" aria-hidden="true">ᛗ</div><h3>Mímir's Tree</h3><p>Spend Honor Echoes on permanent power and awaken your Galdr Stones.</p></article>
+          <article class="mode ember reveal" style="--d:.06s"><div class="rune" aria-hidden="true">ᚾ</div><h3>Threads of Fate</h3><p>After Ragnarök: iron champions, cold Pyres, Fenrir's chain. Harder tables, greater Echoes.</p></article>
+          <article class="mode gold reveal" style="--d:.12s"><div class="rune" aria-hidden="true">ᛟ</div><h3>Deeds &amp; Saga</h3><p>Ten Deeds to earn, and everything the Norns have written about you so far.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Screens ===================== -->
+    <section class="section" id="screens" aria-labelledby="screens-title" style="padding-top:0">
+      <div class="wrap section-head reveal">
+        <p class="eyebrow">Screens</p>
+        <h2 id="screens-title">Drawn by code. Lit by candle.</h2>
+      </div>
+      <div class="gallery" id="gallery" tabindex="0" aria-label="Screenshots, scroll sideways; select one to enlarge">
+        <button type="button"><img src="assets/media/shot-phone-01-hall.jpg" width="720" height="1280" loading="lazy" alt="The hall: the Wyrdtafl rune stone over the table, with Quick Match, The Crossing and the Daily Table"><span class="cap">The hall</span></button>
+        <button type="button"><img src="assets/media/shot-phone-02-muspelheim.jpg" width="720" height="1280" loading="lazy" alt="A match in Muspelheim, lava seams glowing round the table"><span class="cap">Muspelheim</span></button>
+        <button type="button"><img src="assets/media/shot-phone-04-galdr.jpg" width="720" height="1280" loading="lazy" alt="Invoking Blood Tribute: every opponent loses a Wyrd Stone to the Well of Urd"><span class="cap">Galdr</span></button>
+        <button type="button"><img src="assets/media/shot-phone-06-judgement.jpg" width="720" height="1280" loading="lazy" alt="The Verdict: the Norns rank every hand at the table"><span class="cap">The Verdict</span></button>
+        <button type="button"><img src="assets/media/shot-phone-07-crossing.jpg" width="720" height="1280" loading="lazy" alt="The Crossing map at Niflheim, realm 5 of 9, with two glowing paths to choose from"><span class="cap">The Crossing</span></button>
+        <button type="button"><img src="assets/media/shot-phone-03-niflheim.jpg" width="720" height="1280" loading="lazy" alt="A match in Niflheim, the table rimmed with frost"><span class="cap">Niflheim</span></button>
+        <button type="button"><img src="assets/media/shot-phone-08-skins.jpg" width="720" height="1280" loading="lazy" alt="Hrafn forges destiny from the Frost deck, a Harmony II–II in the player's hand"><span class="cap">Forge Destiny</span></button>
+        <button type="button"><img src="assets/media/shot-tablet-04-helheim.jpg" width="720" height="1152" loading="lazy" alt="A match in Helheim on a tablet"><span class="cap">Helheim · tablet</span></button>
+      </div>
+    </section>
+
+    <!-- ===================== Craft ===================== -->
+    <section class="section craft" aria-labelledby="craft-title">
+      <div class="backdrop" aria-hidden="true"><img src="assets/media/realm-svartalfheim.jpg" alt="" loading="lazy" width="1280" height="576"></div>
+      <div class="wrap craft-grid">
+        <div class="reveal">
+          <p class="eyebrow left">Made of code and candlelight</p>
+          <h2 id="craft-title">Forged by one pair of hands.</h2>
+          <p class="lead">The hewn rune-stone table, the bronze Wheel of the Norns, the embers of Muspelheim and the rime of Niflheim: everything on the table is drawn by code, in real-time 3D, with physics for the dice and particles for every spell.</p>
+          <p class="muted">An original score — the hall theme and the table's march are composed for the game — and the voices of the Norns follow every turn. Graphics settings from Light to Max, and a battery saver that steps in when you need it.</p>
+        </div>
+        <div class="stats reveal" style="--d:.1s">
+          <div class="stat"><b>IX</b><span>Realms to cross</span></div>
+          <div class="stat"><b>XX</b><span>Galdr Stones</span></div>
+          <div class="stat"><b>IV</b><span>Difficulties, to Ragnarök</span></div>
+          <div class="stat"><b>VIII</b><span>Languages</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-title">Before you sit down.</h2>
+        </div>
+        <div class="faq reveal">
+          <details><summary>Is it free to play?</summary><p>No — Wyrdtafl is a paid game with a single price. There are no ads, no in-app purchases, no loot boxes and no energy timers. Everything is earned by playing.</p></details>
+          <details><summary>Do I need an internet connection or an account?</summary><p>No. The game plays fully offline and needs no account. Signing in to Google Play Games is optional and only adds achievements, leaderboards and cloud save.</p></details>
+          <details><summary>Is there online multiplayer?</summary><p>Not at the moment. Wyrdtafl is single player: you face one to three AI champions, each with their own style of play. The Daily Table gives every player the same seeded table to compare.</p></details>
+          <details><summary>Which devices does it support?</summary><p>Android phones, foldables and tablets, in portrait or landscape, plus Samsung DeX and desktop mode with mouse and keyboard. Graphics settings from Light to Max keep it smooth on modest hardware.</p></details>
+          <details><summary>Which languages?</summary><p>English, Portuguese, Spanish, French, German, Italian, Polish and Turkish.</p></details>
+          <details><summary>Do I need to know Norse myth or tafl games?</summary><p>Not at all. A guided first match teaches the rules in a few rounds; the myth is there to enjoy, not to study.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Final call to action ===================== -->
+    <section class="section finale" aria-labelledby="finale-title">
+      <div class="backdrop" aria-hidden="true"><img src="assets/media/realm-raven.jpg" alt="" loading="lazy" width="1280" height="576"></div>
+      <div class="wrap reveal">
+        <p class="eyebrow">The thread is spun</p>
+        <h2 id="finale-title">The Norns are watching.</h2>
+        <p class="lead">Take your seat at the table.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="https://play.google.com/store/apps/details?id=com.wyrdtafl.game" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3 13.2 12 3.6 21.7c-.3-.3-.5-.8-.5-1.3V3.6c0-.5.2-1 .5-1.3zm11 9.7 2.9-2.9 3.9 2.2c1 .6 1 1.9 0 2.5l-3.9 2.2L14.6 12zm-1.4 1.4 2.9 2.9-10.6 6c-.5.3-1 .3-1.5.2L13.2 13.4zM4 1.5c.5-.1 1 0 1.5.2l10.6 6-2.9 2.9L4 1.5z"/></svg>
+            <span class="btn-text">Google Play<small>Coming soon to Android</small></span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- ===================== Footer ===================== -->
   <footer>
     <div class="wrap">
-      <p class="links"><a href="privacy/">Privacy policy</a><a href="privacy/pt/">Política de privacidade</a><a href="credits/">Credits</a></p>
-      <p>© 2026 Skimiforow. All rights reserved. Google Play is a trademark of Google LLC.</p>
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="./"><img src="assets/icon-512.png" alt="" width="36" height="36" loading="lazy">WYRDTAFL</a>
+          <p style="margin-top:16px;max-width:30rem">An original game by <a href="https://skimiforow.github.io/">Skimiforow</a>, an independent developer from Portugal. One table, one pair of hands. The names of Norse myth belong to everyone.</p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="mailto:sersight+wyrdtafl@gmail.com">sersight+wyrdtafl@gmail.com</a></li>
+            <li>In game: Settings → Report a problem</li>
+            <li><a href="delete-data/">Delete your data</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy/">Privacy policy</a></li>
+            <li><a href="privacy/pt/" lang="pt">Política de privacidade</a></li>
+            <li><a href="credits/">Credits</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-legal">
+        <p>© 2026 Skimiforow. All rights reserved.</p>
+        <p>Google Play is a trademark of Google LLC.</p>
+      </div>
     </div>
   </footer>
+
+  <!-- Screenshot lightbox (native dialog: Esc closes, focus is trapped). -->
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+    <figure style="margin:0">
+      <img src="" alt="">
+      <p></p>
+    </figure>
+    <button class="round-btn prev" type="button" aria-label="Previous screenshot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+    <button class="round-btn next" type="button" aria-label="Next screenshot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m7.5 4 6 6-6 6"/></svg></button>
+    <button class="round-btn close" type="button" aria-label="Close"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button>
+  </dialog>
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
