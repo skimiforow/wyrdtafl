@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Wyrdtafl — The Judgement of the Norns · Norse tile duel for Android</title>
-  <meta name="description" content="Balance Fire and Ice, bet your Wyrd and cross the Nine Realms before the Norns pass judgement. Wyrdtafl is a dark Norse tile duel for Android: single player, offline, no ads, no in-app purchases.">
+  <meta name="description" content="Balance Fire and Ice, bet your Wyrd and cross the Nine Realms before the Norns pass judgement. Wyrdtafl is a dark Norse tile duel for Android: against AI champions or friends at the same table, offline, no ads, no in-app purchases.">
   <meta name="theme-color" content="#07070a">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://skimiforow.github.io/wyrdtafl/">
@@ -33,7 +33,7 @@
     "@type": ["VideoGame", "MobileApplication"],
     "name": "Wyrdtafl — The Judgement of the Norns",
     "alternateName": "Wyrdtafl",
-    "description": "A single-player Norse tile duel for Android against one to three AI champions. Balance Fire and Ice, bet your Wyrd, cast Galdr Stones and cross the Nine Realms.",
+    "description": "A Norse tile duel for Android against one to three AI champions, or up to four friends each on their own phone. Balance Fire and Ice, bet your Wyrd, cast Galdr Stones and cross the Nine Realms.",
     "url": "https://skimiforow.github.io/wyrdtafl/",
     "image": "https://skimiforow.github.io/wyrdtafl/assets/feature-graphic.png",
     "genre": ["Board game", "Strategy", "Roguelite"],
@@ -211,7 +211,7 @@
       <ul class="pillars reveal" role="list" style="list-style:none;padding:0">
         <li class="pillar">
           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7.5"/><path d="M16 4v5M16 23v5M4 16h5M23 16h5M7.5 7.5l3.5 3.5M21 21l3.5 3.5M24.5 7.5 21 11M11 21l-3.5 3.5"/><circle cx="16" cy="16" r="1.8" fill="currentColor"/></svg>
-          <div><h3>1 to 3 rivals</h3><p>Sit the round table against AI champions who gamble, hoard and strike.</p></div>
+          <div><h3>Rivals or friends</h3><p>Face up to three AI champions who gamble, hoard and strike, or sit friends at the table, each on their own phone.</p></div>
         </li>
         <li class="pillar">
           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 3 27 9v14l-11 6L5 23V9z"/><path d="M16 3v26M5 9l11 6 11-6"/></svg>
@@ -328,6 +328,23 @@
             </ul>
           </div>
         </article>
+
+        <article class="feature tall flip">
+          <figure class="feature-media shot phone gold-glow reveal">
+            <img src="assets/media/shot-phone-09-friends.jpg" width="720" height="1280" loading="lazy" alt="The Friends' Table lobby: the host and a friend marked Ready, with the table's stones, turn timer, AI seats and realm, and Start the table">
+          </figure>
+          <div class="feature-copy reveal" style="--d:.1s">
+            <p class="eyebrow left">Friends' Table · Beta</p>
+            <h2>One table. Every phone.</h2>
+            <p class="lead">Up to four players sit the same table, each on their own phone, with no internet at all: the phones talk over Bluetooth and Wi-Fi. One phone hosts; friends join with a four-digit code the host approves.</p>
+            <ul class="feature-list">
+              <li>A Fair table (every stone for everyone) or a Free one (bring your own), a turn timer, AI seats for the empty chairs.</li>
+              <li>Fair leaving: a dropped phone gets 30 seconds, and walking away counts as a loss.</li>
+              <li>If the host's phone is lost, another phone takes over the table.</li>
+              <li>The Saga keeps your record against every friend, whatever name they use tonight.</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -372,7 +389,7 @@
           <article class="mode frost reveal" style="--d:.12s"><div class="rune" aria-hidden="true">ᚠ</div><h3>Quick Match</h3><p>Choose your foes, your realm and your stones, and sit down at once.</p></article>
           <article class="mode frost reveal"><div class="rune" aria-hidden="true">ᛗ</div><h3>Mímir's Tree</h3><p>Spend Honor Echoes on new stones, relics and permanent power. The harder the crossing, the more Echoes it pays.</p></article>
           <article class="mode ember reveal" style="--d:.06s"><div class="rune" aria-hidden="true">ᚾ</div><h3>Threads of Fate</h3><p>After Ragnarök: iron champions, cold Pyres, Fenrir's chain. Harder tables, greater Echoes.</p></article>
-          <article class="mode gold reveal" style="--d:.12s"><div class="rune" aria-hidden="true">ᛟ</div><h3>Deeds &amp; Saga</h3><p>Ten Deeds to earn, and everything the Norns have written about you so far.</p></article>
+          <article class="mode gold reveal" style="--d:.12s"><div class="rune" aria-hidden="true">ᛟ</div><h3>Deeds &amp; Saga</h3><p>Twelve Deeds to earn, and everything the Norns have written about you so far, friends' tables included.</p></article>
         </div>
       </div>
     </section>
@@ -384,7 +401,8 @@
         <h2 id="screens-title">Drawn by code. Lit by candle.</h2>
       </div>
       <div class="gallery" id="gallery" tabindex="0" aria-label="Screenshots, scroll sideways; select one to enlarge">
-        <button type="button"><img src="assets/media/shot-phone-01-hall.jpg" width="720" height="1280" loading="lazy" alt="The hall: the Wyrdtafl rune stone over the table, with Quick Match, The Crossing and the Daily Table"><span class="cap">The hall</span></button>
+        <button type="button"><img src="assets/media/shot-phone-01-hall.jpg" width="720" height="1280" loading="lazy" alt="The hall: the Wyrdtafl rune stone over the table, with The Crossing, Tables and the Friends' Table"><span class="cap">The hall</span></button>
+        <button type="button"><img src="assets/media/shot-phone-09-friends.jpg" width="720" height="1280" loading="lazy" alt="The Friends' Table lobby with a friend marked Ready"><span class="cap">Friends' Table</span></button>
         <button type="button"><img src="assets/media/shot-phone-02-muspelheim.jpg" width="720" height="1280" loading="lazy" alt="A match in Muspelheim, lava seams glowing round the table"><span class="cap">Muspelheim</span></button>
         <button type="button"><img src="assets/media/shot-phone-04-galdr.jpg" width="720" height="1280" loading="lazy" alt="Invoking Blood Tribute: every opponent loses a Wyrd Stone to the Well of Urd"><span class="cap">Galdr</span></button>
         <button type="button"><img src="assets/media/shot-phone-06-judgement.jpg" width="720" height="1280" loading="lazy" alt="The Verdict: the Norns rank every hand at the table"><span class="cap">The Verdict</span></button>
@@ -424,7 +442,7 @@
         <div class="faq reveal">
           <details><summary>Is it free to play?</summary><p>No — Wyrdtafl is a paid game with a single price. There are no ads, no in-app purchases, no loot boxes and no energy timers. Everything is earned by playing.</p></details>
           <details><summary>Do I need an internet connection or an account?</summary><p>No. The game plays fully offline and needs no account. Signing in to Google Play Games is optional and only adds achievements, leaderboards and cloud save.</p></details>
-          <details><summary>Is there online multiplayer?</summary><p>Not at the moment. Wyrdtafl is single player: you face one to three AI champions, each with their own style of play. The Daily Table gives every player the same seeded table to compare.</p></details>
+          <details><summary>Can I play with friends?</summary><p>Yes, at the Friends' Table (in Beta): up to four players in the same room, each on their own Android phone with Wyrdtafl, no internet needed. There is no online play over the internet; on your own you face one to three AI champions, and the Daily Table gives every player the same seeded table to compare.</p></details>
           <details><summary>Which devices does it support?</summary><p>Android phones, foldables and tablets, in portrait or landscape, plus Samsung DeX and desktop mode with mouse and keyboard. Graphics settings from Light to Max keep it smooth on modest hardware.</p></details>
           <details><summary>Which languages?</summary><p>English, Portuguese, Spanish, French, German, Italian, Polish and Turkish.</p></details>
           <details><summary>Do I need to know Norse myth or tafl games?</summary><p>Not at all. A guided first match teaches the rules in a few rounds; the myth is there to enjoy, not to study.</p></details>
